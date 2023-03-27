@@ -4,7 +4,20 @@ public class Item {
 
 	private String nom;
 	private int poids;
-	
+
+	public Item(String nom, int poids) {
+		this.nom = nom;
+		this.poids = poids;
+	}
+
+	@Override
+	public String toString() {
+		return "Item{" +
+				"nom='" + nom + '\'' +
+				", poids=" + poids +
+				'}';
+	}
+
 	/** Getter pour l'attribut nom
 	 * @return the nom
 	 */

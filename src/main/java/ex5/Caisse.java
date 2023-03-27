@@ -7,14 +7,36 @@ public class Caisse {
 
 	private String nom;
 	private List<Item> items;
+	private int acceptationPoids;
 
-	/** Constructeur
+	/**
+	 * Constructeur
+	 *
 	 * @param nom
+	 * @param acceptationPoids
 	 */
-	public Caisse(String nom) {
+	public Caisse(String nom, int acceptationPoids) {
 		super();
 		this.nom = nom;
+		this.acceptationPoids = acceptationPoids;
 		this.items = new ArrayList<>();
+	}
+
+	public boolean addItem(Item item) {
+		if(item.getPoids() < this.acceptationPoids) {
+			items.add(item);
+			return true;
+		}
+		return false;
+	}
+
+	@Override
+	public String toString() {
+		return "Caisse{" +
+				"nom='" + nom + '\'' +
+				", items=" + items +
+				", acceptationPoids=" + acceptationPoids +
+				'}';
 	}
 
 	/** Getter pour l'attribut nom
